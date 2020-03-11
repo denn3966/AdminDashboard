@@ -25,6 +25,7 @@ namespace HydacAdminPage
         public MainWindow()
         {
             InitializeComponent();
+            WindowState = WindowState.Maximized;
             ViewModel vmw = new ViewModel();
             DataContext = vmw;
             EmployeeList.ItemsSource = vmw.employees;
