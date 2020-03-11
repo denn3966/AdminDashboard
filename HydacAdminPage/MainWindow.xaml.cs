@@ -40,13 +40,13 @@ namespace HydacAdminPage
             //Employee
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
+                conn.Open();
                 foreach (Employee employee in EmployeeList.SelectedItems)
                 {
                     string query = "UPDATE CheckIn SET ToDateTime = '" + dateTime + "' WHERE Employee_Id =" + employee.Id + "AND Checkin.Id = " + employee.CheckIn_Id;
 
                     using (SqlCommand command = new SqlCommand(query, conn))
                     {
-                        conn.Open();
                         int result = command.ExecuteNonQuery();
                     }
                 }
